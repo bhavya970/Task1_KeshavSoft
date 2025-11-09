@@ -63,6 +63,3 @@ This project improved my understanding of **Bootstrap’s responsive design, uti
 
 **Total Duration:** Approximately **2 hours**
 
----
-
-Would you like me to convert this into a **PDF format** or **Markdown (README.md)** file for your submission folder?
