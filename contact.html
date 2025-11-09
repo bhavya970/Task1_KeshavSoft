@@ -1,0 +1,689 @@
+contact.html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Savory Bites</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #1a1a1a;
+            --accent-color: #8b7355;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--secondary-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), #c9a030);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #fff;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #e0e0e0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), #c9a030);
+            border: none;
+            color: var(--secondary-color);
+            padding: 12px 40px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Map Section */
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Hours Card */
+        .hours-card {
+            background: linear-gradient(135deg, var(--secondary-color), #2a2a2a);
+            color: #fff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .hours-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hours-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hours-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+        }
+
+        .time {
+            color: var(--primary-color);
+        }
+
+        /* FAQ Section */
+        .accordion-button {
+            background-color: #f8f9fa;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 3rem 0 1rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #c9a030;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #c9a030;
+            transform: translateY(-3px);
+        }
+
+        .cart-badge {
+            font-size: 0.7rem;
+        }
+
+        .alert-success-custom {
+            background-color: #d4f4dd;
+            border-color: #a3d5b5;
+            color: #155724;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-utensils"></i> Savory Bites
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                            <i class="fas fa-comment"></i> Feedback
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p class="lead">We'd Love to Hear From You</p>
+        </div>
+    </div>
+
+    <!-- Contact Info Cards -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="contact-title">Visit Us</h4>
+                        <p class="contact-info">
+                            123 Food Street<br>
+                            Cuisine City, CC 12345<br>
+                            United States
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4 class="contact-title">Call Us</h4>
+                        <p class="contact-info">
+                            <strong>Phone:</strong> +1 234 567 8900<br>
+                            <strong>Mobile:</strong> +1 234 567 8901<br>
+                            <strong>Fax:</strong> +1 234 567 8902
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-card text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 class="contact-title">Email Us</h4>
+                        <p class="contact-info">
+                            <strong>General:</strong> info@savorybites.com<br>
+                            <strong>Support:</strong> support@savorybites.com<br>
+                            <strong>Careers:</strong> careers@savorybites.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Hours -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="contact-form">
+                        <h3 class="mb-4" style="color: var(--secondary-color);">Send Us a Message</h3>
+                        <div id="formAlert"></div>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Your Name *</label>
+                                    <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" placeholder="john@example.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="+1 234 567 8900">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Subject *</label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Choose...</option>
+                                        <option>General Inquiry</option>
+                                        <option>Reservation</option>
+                                        <option>Catering Services</option>
+                                        <option>Complaint</option>
+                                        <option>Feedback</option>
+                                        <option>Partnership</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Your Message *</label>
+                                    <textarea class="form-control" id="message" rows="6" placeholder="Tell us what's on your mind..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Subscribe to our newsletter for special offers and updates
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-submit btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="hours-card mb-4">
+                        <h4><i class="fas fa-clock"></i> Opening Hours</h4>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Monday</span>
+                                <span class="time">10:00 AM - 10:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Tuesday</span>
+                                <span class="time">10:00 AM - 10:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Wednesday</span>
+                                <span class="time">10:00 AM - 10:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Thursday</span>
+                                <span class="time">10:00 AM - 10:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Friday</span>
+                                <span class="time">10:00 AM - 11:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Saturday</span>
+                                <span class="time">9:00 AM - 11:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Sunday</span>
+                                <span class="time">9:00 AM - 10:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-card">
+                        <h5 style="color: var(--primary-color); margin-bottom: 1rem;">
+                            <i class="fas fa-info-circle"></i> Quick Info
+                        </h5>
+                        <p><strong>Delivery Time:</strong> 30-45 minutes</p>
+                        <p><strong>Minimum Order:</strong> $15.00</p>
+                        <p><strong>Delivery Charge:</strong> $2.99</p>
+                        <p><strong>Payment Methods:</strong> Cash, Card, Online</p>
+                        <p class="mb-0"><strong>Reservation:</strong> Recommended for groups of 6+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-5">
+        <div class="container">
+            <h3 class="text-center mb-4" style="color: var(--secondary-color);">Find Us on Map</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1841311083926!2d-73.98823492346744!3d40.75797103538289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h3 class="text-center mb-5" style="color: var(--secondary-color);">Frequently Asked Questions</h3>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item mb-3" style="border: none; border-radius: 10px; overflow: hidden;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Do you offer delivery services?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! We offer fast and reliable delivery services within a 5-mile radius. Delivery typically takes 30-45 minutes. You can order through our website, phone, or mobile app.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3" style="border: none; border-radius: 10px; overflow: hidden;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Can I make a reservation?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Absolutely! We recommend reservations for groups of 6 or more. You can make a reservation by calling us at +1 234 567 8900 or using our online reservation system.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3" style="border: none; border-radius: 10px; overflow: hidden;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Do you cater for private events?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! We provide comprehensive catering services for corporate events, weddings, birthday parties, and other special occasions. Please contact us at least 48 hours in advance.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item mb-3" style="border: none; border-radius: 10px; overflow: hidden;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Do you have vegetarian/vegan options?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! We have a wide variety of vegetarian and vegan options on our menu. Our staff can also help you customize dishes according to your dietary preferences.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item" style="border: none; border-radius: 10px; overflow: hidden;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            What payment methods do you accept?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We accept cash, all major credit/debit cards (Visa, Mastercard, Amex), and online payment methods including PayPal and Google Pay.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--secondary-color); color: #fff;">
+                    <h5 class="modal-title"><i class="fas fa-comment"></i> Share Your Feedback</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" style="filter: invert(1);"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="feedbackForm">
+                        <div class="mb-3">
+                            <label class="form-label">Your Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Rating</label>
+                            <select class="form-select" required>
+                                <option value="">Choose...</option>
+                                <option>⭐⭐⭐⭐⭐ Excellent</option>
+                                <option>⭐⭐⭐⭐ Good</option>
+                                <option>⭐⭐⭐ Average</option>
+                                <option>⭐⭐ Poor</option>
+                                <option>⭐ Very Poor</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Your Feedback</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-submit" onclick="submitFeedback()">Submit Feedback</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--secondary-color); color: #fff;">
+                    <h5 class="modal-title"><i class="fas fa-shopping-cart"></i> Your Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" style="filter: invert(1);"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <p class="text-center text-muted">Your cart is empty</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>Total:</h4>
+                        <h4 style="color: var(--primary-color); font-weight: bold;" id="cartTotal">$0.00</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                    <button type="button" class="btn btn-submit" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4><i class="fas fa-utensils"></i> Savory Bites</h4>
+                    <p class="mt-3">Experience the finest dining with authentic flavors and exceptional service.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Cuisine City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope"></i> info@savorybites.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sun: 10:00 AM - 10:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border-color: #444;">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Savory Bites. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary-color);"></i> by Your Name</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const newsletter = document.getElementById('newsletter').checked;
+            
+            // Show success alert
+            const alertDiv = document.getElementById('formAlert');
+            alertDiv.innerHTML = `
+                <div class="alert alert-success-custom alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <strong>Thank you, ${name}!</strong> Your message has been sent successfully. We'll get back to you soon at ${email}.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to alert
+            alertDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        // Feedback Modal
+        function submitFeedback() {
+            const form = document.getElementById('feedbackForm');
+            if (form.checkValidity()) {
+                alert('Thank you for your feedback! We appreciate your input and will use it to improve our service.');
+                form.reset();
+                const modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
+                modal.hide();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        // Cart functionality
+        function checkout() {
+            alert('Thank you for your order! Your food will be delivered within 30-45 minutes.');
+        }
+    </script>
+</body>
+</html>
